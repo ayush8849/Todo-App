@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { MdDelete } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 
 const Body = () => {
     const [todo, setTodo] = useState(''); // for writing todo in input tag
@@ -37,15 +39,10 @@ const Body = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 rounded-md shadow-md" style={{ background: 'linear-gradient(to right, #F3F4F6, #E5E7EB)' }}>
+        <div className="max-w-md mx-auto p-6 rounded-md shadow-md" style={{ background: 'linear-gradient(to right, #F3F4F6,#E5E7EB)' }}>
             <h1 className="text-2xl font-semibold mb-4">Todo List</h1>
             <div className="flex">
-                <input
-                    className="flex-grow mr-2 py-2 px-4 border border-gray-300 rounded-md focus:outline-none"
-                    placeholder="Add ToDo" 
-                    value={todo} 
-                    onChange={handleInputChange}
-                />
+                <input className="flex-grow mr-2 py-2 px-4 border border-gray-300 rounded-md focus:outline-none"                    placeholder="Add ToDo"  value={todo} onChange={handleInputChange}/>
                 <button 
                     className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
                     onClick={TodoAdd}
@@ -61,14 +58,13 @@ const Body = () => {
                             <button 
                                 className="mr-2 text-sm text-gray-500 hover:text-blue-500 focus:outline-none"
                                 onClick={() => EditTodo(index)}
-                            >
-                                Edit
+                            ><CiEdit size={35} />
                             </button>
                             <button 
                                 className="text-sm text-red-500 hover:text-red-700 focus:outline-none"
                                 onClick={() => RemoveTodo(index)}
-                            >
-                                Delete
+                            ><MdDelete  size={35}/>
+                            
                             </button>
                         </div>
                     </li>
